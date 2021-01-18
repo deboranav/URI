@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main() {
+  int H1, H2, M1, M2;
+  int inicio, fim, tempo, soma = 0;
+
+  H1 = H2 = M1 = M2 = 0;
+
+  scanf("%d %d %d %d", &H1, &M1, &H2, &M2);
+  soma = H1 + H2 + M1 + M2;
+
+  while (soma != 0){ 
+   if (H2 == 0){
+      H2 = 24;
+    }
+
+    H1 = H1*60;
+    inicio = H1 + M1;
+
+    H2 = H2*60;
+    fim = H2 + M2;
+
+    if (fim > inicio){
+      tempo = fim - inicio;
+    } 
+      else {
+        inicio = 1440 - inicio;
+        tempo = inicio + fim ;
+      }
+    
+
+    printf("%d\n", tempo);
+    scanf("%d %d %d %d", &H1, &M1, &H2, &M2);
+    soma = H1 + H2 + M1 + M2;
+  }
+  
+  return 0;
+}
