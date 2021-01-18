@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+//CÓDIGO DE LUCAS SARMENTO E DÉBORA VALENTIM
+int main() {
+	
+	int testes = 0, i, j, tamString, n;	
+	char string[1001] = {0}, stringF[1001] = {0};
+
+
+	scanf("%d", &testes);
+	getchar();
+	for (i = 0; i < testes; ++i)
+	{
+		
+		fgets(string, 1001, stdin);
+		tamString = strlen(string) - 1;
+
+		// primeira etapa (+3)
+		for (j = 0; j < tamString; ++j)
+		{
+			if(string[j] > 64 && string[j] < 91 || string[j] > 96 && string[j] < 123) {
+
+				string[j] += 3;
+			}
+		}
+		stringF[tamString] = '\0';
+		// segunda etapa (inverte)
+		n = 0;
+		for (j = tamString-1; j >= 0; j--)
+		{
+			stringF[n] = string[j];
+			n++;
+		}
+
+		// terceira etapa 
+	
+		if (tamString%2 == 0){
+
+			for(j = tamString/2; j < tamString; j++){
+				stringF[j] -= 1;
+			}
+		} else {
+
+			for(j = (tamString-1)/2; j < tamString; j++){
+				stringF[j] -= 1;
+			}
+
+		}
+
+		printf("%s\n", stringF);	
+
+	}
+	
+}
